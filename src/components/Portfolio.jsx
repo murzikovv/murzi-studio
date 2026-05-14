@@ -14,19 +14,19 @@ function WorkTile({ w, onOpen }) {
       transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
       className="cursor-grow group relative overflow-hidden rounded-2xl bg-[var(--color-bg-2)] border border-white/8 text-left flex flex-col"
     >
-      <div className="relative aspect-[4/5] w-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-bg-2)] flex items-center justify-center p-3 overflow-hidden">
+      <div className="relative aspect-[4/5] w-full overflow-hidden">
         {w.type === 'video' ? (
           <video
             src={w.src} muted autoPlay loop playsInline
-            className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
         ) : (
           <img
             src={w.src} alt={w.title} loading="lazy"
-            className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
       </div>
 
       <div className="p-3.5 md:p-4 flex items-center justify-between gap-2 border-t border-white/5">

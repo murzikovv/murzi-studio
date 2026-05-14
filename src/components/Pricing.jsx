@@ -10,6 +10,8 @@ function Tier({ t, color, i }) {
     const px = (e.clientX - r.left) / r.width - 0.5;
     const py = (e.clientY - r.top) / r.height - 0.5;
     el.style.transform = `perspective(1100px) rotateX(${py * -5}deg) rotateY(${px * 7}deg) translateZ(0)`;
+    el.style.setProperty('--mx', `${(px + 0.5) * 100}%`);
+    el.style.setProperty('--my', `${(py + 0.5) * 100}%`);
   };
   const reset = () => { if (ref.current) ref.current.style.transform = 'perspective(1100px) rotateX(0) rotateY(0)'; };
 
@@ -27,6 +29,7 @@ function Tier({ t, color, i }) {
           ? `linear-gradient(180deg, color-mix(in oklab, ${color} 16%, var(--color-bg-2)), var(--color-bg-2))`
           : 'var(--color-bg-2)',
         borderColor: t.popular ? color : undefined,
+        '--glow': color,
       }}
     >
       {t.popular && (

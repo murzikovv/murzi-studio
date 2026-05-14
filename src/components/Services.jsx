@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import { site } from '../data/site.js';
+import { useMouseGlow } from '../lib/useMouseGlow.js';
 
 function ServiceCard({ s, i }) {
-  const handleMove = (e) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
-    e.currentTarget.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
-  };
+  const onMove = useMouseGlow();
 
   return (
     <motion.article
@@ -14,9 +11,12 @@ function ServiceCard({ s, i }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
-      onMouseMove={handleMove}
+      onMouseMove={onMove}
       className="capsule-card cursor-grow border border-white/8 bg-[var(--color-bg-2)] p-6 md:p-7 flex flex-col gap-5 min-h-[360px]"
-      style={{ borderColor: `color-mix(in oklab, ${s.color} 20%, rgba(255,255,255,0.06))` }}
+      style={{
+        borderColor: `color-mix(in oklab, ${s.color} 20%, rgba(255,255,255,0.06))`,
+        '--glow': s.color,
+      }}
     >
       <div className="flex items-start justify-between gap-3">
         <span
