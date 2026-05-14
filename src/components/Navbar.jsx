@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { site } from '../data/site.js';
 
 const links = [
@@ -58,6 +59,12 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
+            <Link to="/brief"
+               className="btn-ghost !py-2 !px-4 !text-sm hidden md:inline-flex">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 4h9a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8l5-4Z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 4v4H4M9 13h7M9 17h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
+              бриф
+            </Link>
+
             <a href={site.contacts.telegramUrl} target="_blank" rel="noreferrer"
                className="btn-primary !py-2 !px-4 !text-sm hidden sm:inline-flex">
               написать
@@ -109,6 +116,9 @@ export default function Navbar() {
               <a href={site.contacts.telegramUrl} target="_blank" rel="noreferrer" className="btn-primary !w-full !justify-center">
                 написать в Telegram
               </a>
+              <Link to="/brief" onClick={() => setOpen(false)} className="btn-ghost !w-full !justify-center">
+                заполнить бриф
+              </Link>
               <a href={site.contacts.channelUrl} target="_blank" rel="noreferrer" className="btn-ghost !w-full !justify-center">
                 канал @murzi_design
               </a>

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { site } from '../data/site.js';
 
 function Tier({ t, color, i }) {
@@ -143,7 +144,10 @@ export default function Pricing() {
         </AnimatePresence>
 
         <p className="text-center text-sm text-[var(--color-ink-dim)] mt-10">
-          Не нашли свой формат? <a href={site.contacts.telegramUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4 text-white">Обсудим под задачу →</a>
+          Не нашли свой формат?{' '}
+          <Link to="/brief" className="underline underline-offset-4 text-white">Заполните бриф</Link>
+          {' '}или{' '}
+          <a href={site.contacts.telegramUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4 text-white">напишите в Telegram →</a>
         </p>
       </div>
     </section>

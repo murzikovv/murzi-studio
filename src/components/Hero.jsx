@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import HeroScene from './HeroScene.jsx';
 import { site } from '../data/site.js';
 import { useCounter } from '../lib/useCounter.js';
@@ -73,10 +74,10 @@ export default function Hero() {
               посмотреть работы
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M7 7h10v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </a>
-            <a href={site.contacts.telegramUrl} target="_blank" rel="noreferrer" className="btn-ghost">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4 2 11l7 2 9-7-7 9 2 7 9-18z"/></svg>
-              telegram
-            </a>
+            <Link to="/brief" className="btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 4h9a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8l5-4Z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 4v4H4M9 13h7M9 17h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
+              заполнить бриф
+            </Link>
           </motion.div>
         </div>
 

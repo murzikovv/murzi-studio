@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { site } from '../data/site.js';
 
 export default function Footer() {
@@ -17,6 +18,7 @@ export default function Footer() {
             <li><a href="#work" className="hover:text-[var(--color-accent)]">работы</a></li>
             <li><a href="#pricing" className="hover:text-[var(--color-accent)]">цены</a></li>
             <li><a href="#process" className="hover:text-[var(--color-accent)]">процесс</a></li>
+            <li><Link to="/brief" className="hover:text-[var(--color-accent)]">заполнить бриф</Link></li>
           </ul>
         </div>
         <div>
