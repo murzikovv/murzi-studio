@@ -66,9 +66,9 @@ export default function Showreel() {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_330px] gap-5 md:gap-8 items-start">
-          {/* MAIN player */}
-          <div className="relative mx-auto w-full max-w-[460px] lg:max-w-none lg:justify-self-center">
+        <div className="grid lg:grid-cols-[minmax(0,440px)_300px] lg:justify-center gap-5 md:gap-8 items-start">
+          {/* MAIN player — width-capped so portrait video fits the screen */}
+          <div className="relative mx-auto w-full max-w-[440px]">
             <div className="relative rounded-[26px] p-[1.5px] bg-gradient-to-b from-[var(--color-accent)]/50 via-white/10 to-transparent">
               <div className="relative rounded-[25px] overflow-hidden bg-black aspect-[4/5]">
                 <AnimatePresence mode="wait">
@@ -101,7 +101,7 @@ export default function Showreel() {
                     <div className="text-[10px] uppercase font-mono tracking-[0.2em] text-[var(--color-accent)] mb-1">
                       рекламный ролик
                     </div>
-                    <div className="font-display text-lg md:text-xl tracking-tight drop-shadow">{cur.title}</div>
+                    <div className="font-display text-lg tracking-tight drop-shadow">{cur.title}</div>
                   </div>
                   <button
                     type="button"
@@ -132,18 +132,16 @@ export default function Showreel() {
             {videos.map((v, i) => {
               const on = i === active;
               return (
-                <motion.button
+                <button
                   key={v.id}
                   type="button"
                   onClick={() => pick(i)}
-                  whileHover={{ scale: 1.015 }}
-                  whileTap={{ scale: 0.985 }}
-                  className={`cursor-grow group relative shrink-0 w-[150px] lg:w-full rounded-2xl overflow-hidden border transition
+                  className={`cursor-grow group relative shrink-0 w-[150px] lg:w-full box-border rounded-2xl overflow-hidden border transition-colors duration-300
                     ${on ? 'border-[var(--color-accent)]/70 shadow-[0_0_30px_-10px_var(--color-accent)]' : 'border-white/10 hover:border-white/30'}`}
                 >
-                  <div className="relative aspect-[4/5] lg:aspect-[16/10] bg-black">
-                    <video src={v.src} muted autoPlay loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-90" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="relative aspect-[16/10] bg-black">
+                    <video src={v.src} muted autoPlay loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
                     {on && (
                       <span className="absolute top-2 left-2 text-[9px] font-mono uppercase tracking-wider px-2 py-1 rounded-md bg-[var(--color-accent)] text-black">
                         играет
@@ -153,7 +151,7 @@ export default function Showreel() {
                       {v.title}
                     </div>
                   </div>
-                </motion.button>
+                </button>
               );
             })}
           </div>
