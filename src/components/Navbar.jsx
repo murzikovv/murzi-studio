@@ -6,8 +6,9 @@ import { site } from '../data/site.js';
 const links = [
   { href: '#services', label: 'услуги' },
   { href: '#work', label: 'работы' },
+  { href: '#showreel', label: 'видео' },
+  { href: '#approach', label: 'подход' },
   { href: '#pricing', label: 'цены' },
-  { href: '#process', label: 'процесс' },
   { href: '#contact', label: 'контакты' },
 ];
 

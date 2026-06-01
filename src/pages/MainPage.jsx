@@ -3,6 +3,8 @@ import Hero from '../components/Hero.jsx';
 import Marquee from '../components/Marquee.jsx';
 import Services from '../components/Services.jsx';
 import Portfolio from '../components/Portfolio.jsx';
+import Showreel from '../components/Showreel.jsx';
+import Approach from '../components/Approach.jsx';
 import Pricing from '../components/Pricing.jsx';
 import Process from '../components/Process.jsx';
 import Faq from '../components/Faq.jsx';
@@ -19,6 +21,8 @@ export default function MainPage() {
         <Marquee />
         <Services />
         <Portfolio />
+        <Showreel />
+        <Approach />
         <Pricing />
         <Process />
         <Faq />
